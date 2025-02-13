@@ -69,11 +69,11 @@ Access the API at: http://127.0.0.1:5000/
 
 - **🟢 Deep Learning Frameworks:**
   - PyTorch / TensorFlow
-	- Hugging Face 🤗 Transformers
+  - Hugging Face 🤗 Transformers
 
 - **🟢 Other Tools & Libraries:**
   - Matplotlib, Seaborn (for visualization)
-	- Flask / FastAPI (for API deployment)
+  - Flask / FastAPI (for API deployment)
 
 ## 🏆 Results & Performance
 

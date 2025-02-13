@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishShield - Email Phishing Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">🛡️ PhishShield</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Phishing Insights</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#statistics">Statistics</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>🛡️ Welcome to PhishShield</h1>
+      <p>Defend yourself against phishing scams with state-of-the-art email detection powered by machine learning and AI.</p>
+      <button class="cta-btn" onclick="openLoginModal()">Start Protecting Now</button>
+    </div>
+    <div class="hero-animation">
+      <div class="glitch-text">Phish Alert!</div>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="login-modal">
+    <div class="login-modal-content">
+      <h2>Login</h2>
+      <form onsubmit="validateLogin(event)">
+        <input type="email" placeholder="Email" id="loginUsername" required />
+        <input type="password" placeholder="Password" id="loginPassword" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="openRegistrationModal" style="  color: #2bff79;
+">Sign Up</a></p>
+      <button class="close-modal" onclick="closeLoginModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div id="registrationModal" class="login-modal">
+    <div class="login-modal-content">
+      <h2>Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" id="backToLoginModal" style="  color: #2bff79;
+">Login</a></p>
+      <button class="close-modal" onclick="closeRegistrationModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>Phishing Insights</h2>
+    <div class="about-grid">
+      <div class="info-card">
+        <h3>What is Phishing?</h3>
+        <p>Phishing is a cyberattack where hackers pose as legitimate entities to steal sensitive information.</p>
+      </div>
+      <div class="info-card">
+        <h3>Common Phishing Tactics</h3>
+        <ul>
+          <li>Spoofed Email Addresses</li>
+          <li>Malicious Links</li>
+          <li>Fake Login Pages</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Why PhishShield?</h3>
+        <p>PhishShield employs cutting-edge machine learning models to detect and mitigate phishing attacks in real time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <div class="features-carousel">
+      <div class="feature-item">
+        <h3>Real-Time Email Analysis</h3>
+        <p>Quickly scans emails to detect phishing patterns and anomalies.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Phishing Threat Alerts</h3>
+        <p>Receive instant notifications for suspicious emails.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Interactive Phishing Simulator</h3>
+        <p>Simulate phishing attacks to test your awareness.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Detailed Analytics</h3>
+        <p>Generate reports on phishing attempts and response rates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="statistics" class="statistics">
+    <h2>Global Phishing Statistics</h2>
+    <div class="stats-widgets">
+      <div class="stat-widget">
+        <h3>3.4 Billion+</h3>
+        <p>Phishing Emails Sent Daily</p>
+      </div>
+      <div class="stat-widget">
+        <h3>91%</h3>
+        <p>Cyberattacks Begin with Phishing</p>
+      </div>
+      <div class="stat-widget">
+        <h3>$26 Billion</h3>
+        <p>Global Losses (2023)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="demo">
+    <h2>Interactive Phishing Detection</h2>
+    <p>Try out our phishing detection tool by uploading an email or pasting a suspicious URL.</p>
+    <button class="demo-btn">Try Now</button>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 PhishShield. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phishing Detector</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #0b811f, #01a18e);
+            line-height: 1.6;
+            padding: 0 10px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevent scroll due to falling effect */
+            position: relative;
+        }
+
+        /* Matrix Background Effect */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind content */
+        }
+
+        button {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #128c1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #00e3c9;
+        }
+
+        /* Title Style */
+        h1 {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #25d366, 0 0 20px #25d366;
+        }
+
+        /* Form and Text Area Style */
+        #predict-form {
+            width: 80%;
+            max-width: 600px;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #25d366;
+            box-shadow: 0 5px 5px rgb(0, 255, 17);
+            position: relative;
+            z-index: 1;
+        }
+
+        label {
+            color: #bbbbbb;
+            font-size: 1.1em;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 2px solid #25d366;
+            border-radius: 8px;
+            resize: none;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #2b2b2b;
+        }
+
+        /* Button Style */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #25d366;
+            color: #000;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00ffe1;
+        }
+
+        /* Result Style */
+        #result {
+            color: #00f7ff;
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Additional Instruction Text */
+        .instruction {
+            color: #bbbbbb;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Legitimate and Phishing Colors */
+        .legitimate {
+            color: #00ff00;
+        }
+
+        .phishing {
+            color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas> <!-- Matrix Effect Canvas -->
+
+    <h1>Phishing Detector</h1>
+    <p class="instruction">
+        Paste the content of an email below to verify if it is 
+        <span class="legitimate">Phishing</span> or <span class="phishing">not</span>.
+    </p>
+    <form id="predict-form">
+        <textarea id="text" placeholder="Paste email content here..."></textarea><br><br>
+        <button type="button" onclick="predict()">Predict</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        function predict() {
+            const text = document.getElementById('text').value;
+            fetch('/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({text: text})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Prediction: ' + data.prediction;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Matrix Effect JavaScript
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas to full window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const characters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=-";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrixEffect() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Fades old characters
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0F0"; // Matrix green color
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters[Math.floor(Math.random() * characters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrixEffect, 50); // Adjust speed
+    </script>
+</body>
+</html>

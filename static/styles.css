@@ -1,0 +1,483 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #128c1a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #00e3c9;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background: #000;
+  border-bottom: 2px solid #444;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #25d366;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar nav ul li a {
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+  color: #25d366;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0b811f, #01a18e);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.cta-btn {
+  padding: 10px 20px;
+  background: #25d366;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.1);
+  background: #00ffe1;
+}
+
+.hero-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.2;
+}
+
+.glitch-text {
+  font-size: 5rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #000000;
+  animation: glitch 1.5s infinite;
+  text-shadow: 0 0 5px #c9ffdd, 0 0 10px #75ffa7, 0 0 20px #128c7e;
+
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(5px, -5px);
+  }
+  66% {
+    transform: translate(-5px, 5px);
+  }
+}
+
+/* Section Styles */
+section {
+  padding: 60px 5%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #25d366, 0 0 20px #25d366;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #25d366, 0 0 10px #25d366, 0 0 20px #128c7e;
+}
+
+/* About Section */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  padding: 20px;
+  background: #222;
+  border-radius: 10px;
+  border: 2px solid #25d366;
+  box-shadow: 0 5px 5px rgb(0, 255, 17);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #128c7e;
+}
+
+/* Features Section */
+.features-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 40px 5%;
+  scroll-behavior: smooth;
+}
+
+.feature-item {
+  flex: 0 0 260px;
+  background: #222;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #25d366;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 5px rgb(0, 255, 17);
+}
+
+.feature-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #128c7e;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Global Phishing Statistics Section */
+.stats-widgets {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 5%;
+}
+
+.stat-widget {
+  flex: 0 0 200px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #25d366;
+  text-align: center;
+  box-shadow: 0 5px 5px rgb(0, 255, 17);
+}
+
+.stat-widget h3 {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 5px #25d366, 0 0 10px #25d366;
+}
+
+.stat-widget p {
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* Demo Section */
+.demo-btn {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid #25d366;
+  color: #25d366;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.demo-btn:hover {
+  background: #25d366;
+  color: #000;
+}
+
+/* Contact Section */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border: 2px solid #25d366;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background: #25d366;
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #111;
+  border-top: 2px solid #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .features-carousel {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 5%;
+  }
+}
+
+/* Login Modal */
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.login-modal-content {
+  width: 90%;
+  max-width: 400px;
+  background: linear-gradient(135deg, #0b811f, #128c7e);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #25d366, 0 0 15px #128c7e;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000;
+}
+
+.login-form input::placeholder {
+  color: #888;
+}
+
+.login-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #25d366;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  background: #25d366;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(37, 211, 102, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(37, 211, 102, 0.8);
+}
+
+.signup-link {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.signup-link a {
+  color: #2bff79;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Modal */
+@media (max-width: 500px) {
+  .login-modal-content {
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .login-form input {
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    font-size: 0.9rem;
+  }
+}
+
+.login-modal.show .login-modal-content {
+  animation: popIn 0.3s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Common styles for both modals */
+.login-modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.login-modal-content form input {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.login-modal-content form button {
+  width: 95%;
+  padding: 10px;
+  background: #25d366;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-modal-content form button:hover {
+  background: #128c7e;
+}
+
